@@ -1,17 +1,27 @@
 import { styled } from "styled-components"
+import { RxCheckCircled } from "react-icons/rx"
+import { RxCrossCircled } from 'react-icons/rx'
+import { RxMinusCircled } from "react-icons/rx"
+import { useState } from "react";
 
 export default function Question(props){
 
-    const { questions } = props;
+    const { right, wrong, empty, aula } = props;
 
     return(
         <>
-        {questions.map((q, i) => (
+        {aula.map((q, i) => (
             <SCContainer key={i}>
                 <SCLabel>Questão {q.question}</SCLabel>
-                <SCInput type="text" placeholder={q.text}></SCInput>
+                <SCInput 
+                type="text" 
+                placeholder={q.text} 
+                required
+                ></SCInput>
+                <SCIconGray answer={empty.includes(q.question)}/>
+                <SCIconGreen answer={right.includes(q.question)}/>
+                <SCIconRed answer={wrong.includes(q.question)}/>
             </SCContainer>
-            
         ))}
         </>
     )
@@ -31,6 +41,8 @@ const SCContainer = styled.div`
   border: none;
 
   margin-top: 20px;
+
+  position: relative;
 `
 
 const SCLabel = styled.label`
@@ -38,6 +50,8 @@ const SCLabel = styled.label`
   font-weight: bold;
 
   font-family: 'Recursive', sans-serif;
+
+  color: #008000;
 `
 
 const SCInput = styled.input`
@@ -46,4 +60,47 @@ const SCInput = styled.input`
   border-radius: 4px;
   border: solid 1px #008000; 
 
+  margin-right: 70px;
+
+  font-family: 'Recursive', sans-serif;
+
+  padding-left: 10px;
+
+  color: black;
+`
+
+const SCIconGray = styled(RxMinusCircled)`
+  width: 25px;
+  height: 25px;
+
+  color: #212121;
+
+  position: absolute;
+  right: 35px;
+
+  display: ${(props => props.answer ? 'block' : 'none')};
+`
+
+const SCIconGreen = styled(RxCheckCircled)`
+  width: 25px;
+  height: 25px;
+
+  color: #008000;
+
+  position: absolute;
+  right: 35px;
+
+  display: ${(props => props.answer ? 'block' : 'none')};
+`
+
+const SCIconRed = styled(RxCrossCircled)`
+  width: 25px;
+  height: 25px;
+
+  color: red;
+
+  position: absolute;
+  right: 35px;
+
+  display: ${(props => props.answer ? 'block' : 'none')}; 
 `
