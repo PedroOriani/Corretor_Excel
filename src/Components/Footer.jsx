@@ -7,13 +7,13 @@ export default function Footer (props){
     let answ = `${right.length} / ${aula.length}`
 
     return(
-        <SCContainer>
+        <SCContainerFoot>
             <SCText>{answered === 0 ? "Ainda não respondido" : `Respostas Corretas: ${answ}`}</SCText>
-        </SCContainer>
+        </SCContainerFoot>
     )
 }
 
-const SCContainer = styled.div`
+const SCContainerFoot = styled.div`
     width: 100%;
     height: 70px;
 

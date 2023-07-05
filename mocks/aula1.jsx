@@ -1,4 +1,4 @@
-const questions = [
+const aula1 = [
     {question: 1, text: 'Número de Telefone' ,answer: '####"-"####'},
     {question: 2, text: 'Número de Telefone com DDD' ,answer: '"("##")" ####"-"####'},
     {question: 3, text: 'Número de celular de SP' ,answer: '"9"####"-"####'},
@@ -13,4 +13,4 @@ const questions = [
     {question: 12, text: 'Unidade de Computadores' ,answer: '# "computadores"'}
 ]
 
-export default questions
+export default aula1
