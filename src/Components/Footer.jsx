@@ -2,13 +2,13 @@ import { styled } from "styled-components"
 
 export default function Footer (props){
 
-    const { aula, right } = props;
+    const { aula, right, answered } = props;
 
-
+    let answ = `${right.length} / ${aula.length}`
 
     return(
         <SCContainer>
-            <SCText>Respostas Corretas: {right.length} / {aula.length}</SCText>
+            <SCText>{answered === 0 ? "Ainda não respondido" : `Respostas Corretas: ${answ}`}</SCText>
         </SCContainer>
     )
 }

@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export default function Question(props){
 
-    const { right, wrong, empty, aula } = props;
+    const { right, wrong, empty, aula, answers, setAnswers} = props;
 
     return(
         <>
@@ -15,7 +15,7 @@ export default function Question(props){
                 <SCLabel>Questão {q.question}</SCLabel>
                 <SCInput 
                 type="text" 
-                placeholder={q.text} 
+                placeholder={q.text}
                 required
                 ></SCInput>
                 <SCIconGray answer={empty.includes(q.question)}/>
