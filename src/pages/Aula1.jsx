@@ -6,16 +6,25 @@ import { RxCheckCircled } from "react-icons/rx"
 import { RxCrossCircled } from 'react-icons/rx'
 import { RxMinusCircled } from "react-icons/rx"
 import { Link } from "react-router-dom"
+import { useEffect } from "react"
 
-export default function Aula1() {
+export default function Aula1(props) {
+
+  const { right, setRight, wrong, setWrong, answered, setAnswered } = props
+
   const questions = [];
-  const [right, setRight] = useState([])
-  const [wrong, setWrong] = useState([])
-  const [answered, setAnswered] = useState(0)
 
   aula1.forEach(q => questions.push(q.question));
 
   const [empty, setEmpty] = useState(questions)
+
+  useEffect( () => {
+    
+    setRight([])
+    setWrong([])
+    setAnswered(0)
+
+}, []);
 
   const [answer1, setAnswer1] = useState('')
   const [answer2, setAnswer2] = useState('')
