@@ -12,6 +12,9 @@ export default function HomePage() {
                 <Link to="/aula2">
                     <SCPages>Aula 2</SCPages>
                 </Link>
+                <Link to="/aula3">
+                    <SCPages>Aula 3</SCPages>
+                </Link>
             </SCContainer>
         </>
     )
